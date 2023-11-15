@@ -6,7 +6,7 @@ import java.util.List;
 
 public class DadosDeputado {
 
-    private int id;
+    private long id;
     private String uri;
     private String nome;
     private String siglaPartido;
@@ -19,7 +19,7 @@ public class DadosDeputado {
     public DadosDeputado() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
