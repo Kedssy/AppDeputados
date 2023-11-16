@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.appcontroledeputado.dto.DadosDeputado;
 import com.example.appcontroledeputado.dto.DeputadoDto;
+import com.example.appcontroledeputado.dto.DespesaDto;
 import com.example.appcontroledeputado.retrofit.RetrofitConfig;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public class DeputadoController {
     public interface DeputadoCallback {
         void onDeputadoDtoReceived(DeputadoDto deputadoDto);
         void onDeputadoError(String errorMessage);
+    }
+
+    public interface DespesaCallback {
+        void onDespesaDtoReceived(DespesaDto despesaDto);
+        void onDespesaDtoError(String errorMessage);
     }
 
     public static void getDeputados(Context ctx, final DeputadoCallback callback) {
@@ -43,26 +49,26 @@ public class DeputadoController {
         }
     }
 
-    public static void getDespesas(Context ctx, final DeputadoCallback callback) {
+    public static void getDespesas(long idDeputado, Context ctx, final DespesaCallback callback) {
         try {
-            Call<DeputadoDto> call = new RetrofitConfig().deputadoService().deputados();
+            Call<DespesaDto> call = new RetrofitConfig().deputadoService().despesasPorDeputadoId(idDeputado);
 
-            call.enqueue(new Callback<DeputadoDto>() {
+            call.enqueue(new Callback<DespesaDto>() {
                 @Override
-                public void onResponse(Call<DeputadoDto> call, Response<DeputadoDto> response) {
-                    DeputadoDto dto = response.body();
-                    callback.onDeputadoDtoReceived(dto);
+                public void onResponse(Call<DespesaDto> call, Response<DespesaDto> response) {
+                    DespesaDto dto = response.body();
+                    callback.onDespesaDtoReceived(dto);
                 }
 
                 @Override
-                public void onFailure(Call<DeputadoDto> call, Throwable t) {
-                    callback.onDeputadoError(t.getMessage());
+                public void onFailure(Call<DespesaDto> call, Throwable t) {
+                    callback.onDespesaDtoError(t.getMessage());
 
                 }
             });
 
         } catch (Exception ex) {
-            callback.onDeputadoError(ex.getMessage());
+            callback.onDespesaDtoError(ex.getMessage());
         }
     }
 

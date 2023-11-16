@@ -1,8 +1,7 @@
 package com.example.appcontroledeputado.service;
 
 import com.example.appcontroledeputado.dto.DeputadoDto;
-
-import java.util.List;
+import com.example.appcontroledeputado.dto.DespesaDto;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,6 +11,6 @@ public interface DeputadoService {
     @GET("deputados")
     Call<DeputadoDto> deputados();
 
-    @GET("deputado/{id}/despesas")
-    Call<List<DeputadoDto>> despesasPorDeputadoId(@Path("id") int id);
+    @GET("deputados/{id}/despesas")
+    Call<DespesaDto> despesasPorDeputadoId(@Path("id") long id);
 }
