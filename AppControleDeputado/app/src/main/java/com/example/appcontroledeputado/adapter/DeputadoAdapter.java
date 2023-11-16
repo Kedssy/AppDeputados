@@ -7,15 +7,26 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.appcontroledeputado.R;
 import com.example.appcontroledeputado.dto.DadosDeputado;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DeputadoAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<DadosDeputado> lista;
+
+    public Context getContext() {
+        return context;
+    }
+
+    public ArrayList<DadosDeputado> getLista() {
+        return lista;
+    }
 
     public DeputadoAdapter(Context context, ArrayList<DadosDeputado> lista) {
         this.context = context;
@@ -47,10 +58,17 @@ public class DeputadoAdapter extends BaseAdapter {
         TextView tvNomeDeputado = convertView.findViewById(R.id.tvNomeDeputado);
         TextView tvPartido = convertView.findViewById(R.id.tvPartido);
         TextView tvIdDeputado = convertView.findViewById(R.id.tvIdDeputado);
+        CircleImageView avatarImageView = convertView.findViewById(R.id.avatarImageView);
 
         tvNomeDeputado.setText(dadosDeputado.getNome());
         tvPartido.setText(dadosDeputado.getSiglaPartido());
         tvIdDeputado.setText(String.valueOf(dadosDeputado.getId()));
+        Glide.with(getContext().getApplicationContext())
+                .load(dadosDeputado.getUrlFoto())
+                .placeholder(R.drawable.default_avatar)
+                .error(R.drawable.default_avatar)
+                .into(avatarImageView);
+
 
         return convertView;
 

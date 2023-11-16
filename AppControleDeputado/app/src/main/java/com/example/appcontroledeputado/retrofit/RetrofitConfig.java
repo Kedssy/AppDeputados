@@ -1,6 +1,7 @@
 package com.example.appcontroledeputado.retrofit;
 
 import com.example.appcontroledeputado.service.DeputadoService;
+import com.example.appcontroledeputado.service.PartidoService;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -26,6 +27,10 @@ public class RetrofitConfig {
 
     public DeputadoService deputadoService() {
         return this.retrofit.create(DeputadoService.class);
+    }
+
+    public PartidoService partidoService() {
+        return this.retrofit.create(PartidoService.class);
     }
 
 }

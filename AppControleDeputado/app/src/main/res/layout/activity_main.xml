@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.MainActivity">
 
 
@@ -13,6 +14,14 @@
         android:layout_height="100dp"
         android:layout_margin="20dp"
         android:text="Despesas e receitas"
+        />
+
+    <Button
+        android:id="@+id/btPartidos"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:text="Partidos"
         />
 
 
