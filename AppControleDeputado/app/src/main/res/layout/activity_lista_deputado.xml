@@ -4,16 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.ListaDeputadoActivity">
 
-
-    <Button
-        android:id="@+id/btDespesas"
+    <ListView
+        android:id="@+id/lvDeputados"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="20dp"
-        android:text="Despesas e receitas"
-        />
-
+        android:layout_height="match_parent" />
 
 </LinearLayout>
