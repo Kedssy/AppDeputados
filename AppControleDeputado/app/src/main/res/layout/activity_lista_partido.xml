@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.ListaDespesaActivity">
+    tools:context=".view.ListaPartidoActivity">
 
     <ListView
-        android:id="@+id/lvDespesas"
+        android:id="@+id/lvPartidos"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
