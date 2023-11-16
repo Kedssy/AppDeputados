@@ -2,26 +2,24 @@ package com.example.appcontroledeputado.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class PartidoDto {
+public class PartidoCompleteDto {
     @JsonProperty("dados")
-    private ArrayList<DadosPartido> dados;
+    private DadosPartidoComplete dados;
 
     @JsonProperty("links")
     private List<Links> links;
 
 
-    public PartidoDto() {
+    public PartidoCompleteDto() {
     }
 
-    public Collection<? extends DadosPartido> getDados() {
+    public DadosPartidoComplete getDados() {
         return dados;
     }
 
-    public void setDados(ArrayList<DadosPartido> dados) {
+    public void setDados(DadosPartidoComplete dados) {
         this.dados = dados;
     }
 
@@ -31,9 +29,5 @@ public class PartidoDto {
 
     public void setLinks(List<Links> links) {
         this.links = links;
-    }
-
-    public static class StatusDto {
-
     }
 }

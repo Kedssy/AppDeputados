@@ -9,10 +9,13 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Portal da Transparência"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppControleDeputado"
         tools:targetApi="31">
+        <activity
+            android:name=".view.PartidoCompleteActivity"
+            android:exported="false" />
         <activity
             android:name=".view.ListaPartidoActivity"
             android:exported="false" />
